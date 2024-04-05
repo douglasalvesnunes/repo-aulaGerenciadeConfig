@@ -11,9 +11,30 @@
         <label for="peso">Peso</label>
         <input name="peso" type="text" id="peso" required placeholder="digite seu peso em kg">
         <label for="altura">Altura</label>
-        <input name="altura" type="text" id="altura" required placeholder="digite sua altura em metros ex: 1.90">
+        <input name="altura" type="text" id="altura" required placeholder="digite sua altura com ponto (ex.: 1.68)">
         <input type="submit" value="Enviar" class="enviar">
     </form>
+    <div class="resultado">
+        <p class="imc">Calcule seu IMC</p>
+    </div>
+
+    <script>
+        var botaoImc = document.querySelector(".enviar");
+
+        function calculaIMC(event){
+            event.preventDefault();
+
+            var form = document.querySelector("#calculo-imc");
+            var peso = form.peso.value;
+            var altura = form.altura.value;
+            var imc = (peso/(altura*altura)).toFixed(2);
+            var resultadoIMC = document.querySelector(".imc");
+            resultadoIMC.textContent = imc;
+
+        }
+        botaoImc.addEventListener('click', calculaIMC)
+
+    </script>
 
     
 </body>
